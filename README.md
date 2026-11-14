@@ -3,7 +3,7 @@
 An animated backdrop for the Claude desktop app: a small transformer that spells out
 "Claudemaxxing..." one token at a time, beside your conversation.
 
-[![Demo of the backdrop: a transformer diagram animating to the right of the chat column](assets/demo.gif)](assets/demo.mp4)
+[![Demo of the backdrop: a transformer diagram animating between the sidebar and the chat column](assets/demo.gif)](assets/demo.mp4)
 
 ## What you see
 
@@ -18,10 +18,9 @@ One loop takes 18 seconds, three per token (`Cl` · `aude` · `max` · `x` · `i
 
 Then the word holds for a moment, fades, and starts again.
 
-Everything is drawn as one slim column pinned to the window's right edge, in the gutter
-beside the chat column. Nothing sits behind the text you are reading, and the sidebar never
-covers it. The ground is transparent, with grey hairlines and one orange accent, so it sits
-on top of whatever theme you already use.
+Everything is drawn as one slim column in the gutter between the sidebar and the chat
+column, so nothing sits behind the text you are reading. The ground is transparent, with
+grey hairlines and one orange accent, so it sits on top of whatever theme you already use.
 
 ## Install
 
@@ -48,9 +47,11 @@ In the desktop app, where `/plugin` does not run: click **+** next to the prompt
   and editor extensions draw nothing. It has been tested on the desktop app in dark mode only.
 - **Early-access API.** This is a Claude Code mod (a plugin with a hooks module). The mod API
   is early access and may change between releases; this was built against Claude Code 2.1.325.
-- **Window size.** The column needs a gutter of roughly 350 pixels to the right of the chat
-  column, which a wide desktop window has. In a narrower window the gutter shrinks and the
-  left part of the scene slides under the chat column.
+- **Window size.** The column needs a gutter of roughly 330 pixels between the sidebar and
+  the chat column, which a wide desktop window has. In a narrower window the gutter shrinks
+  and the right part of the scene slides under the chat column.
+- **Sidebar.** The scene is placed for an open sidebar. With the sidebar closed, the chat
+  column moves left and covers part of it.
 - **Reduce Motion.** The scene keeps animating when the system's Reduce Motion setting is on.
   If you want it still, remove the mod.
 - **One theme at a time.** A session has one theme, the latest set, so this replaces a backdrop
