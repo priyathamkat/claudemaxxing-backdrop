@@ -5,8 +5,6 @@ An animated backdrop for the Claude desktop app: a small transformer that spells
 
 [![Demo of the backdrop: a transformer diagram animating either side of a chat column](assets/demo.gif)](assets/demo.mp4)
 
-The full-resolution video is [`assets/demo.mp4`](assets/demo.mp4).
-
 ## What you see
 
 One loop takes 18 seconds, three per token (`Cl` · `aude` · `max` · `x` · `ing` · `...`):
@@ -55,33 +53,6 @@ In the desktop app, where `/plugin` does not run: click **+** next to the prompt
   If you want it still, remove the mod.
 - **One theme at a time.** A session has one theme, the latest set, so this replaces a backdrop
   set by another mod.
-
-## How it works
-
-The whole mod is [`hooks/register.tsx`](hooks/register.tsx):
-
-- At `session.start` it calls `$.theme.set({ backdrop: { scene: 'claudemaxxing', glass } })`.
-- A `ui.render` hook on the `Backdrop` component answers with one `<Svg>`.
-- The scene is a single SVG string animated by CSS keyframes inside its own `<style>`. It runs
-  no script and loads nothing.
-
-To change the look, edit the `SCENE` string (colours are plain hex; the accent is `#d97757`)
-or the `glass` values, which set how much the app's panels frost over the backdrop.
-
-## The demo video
-
-The video is made with [Remotion](https://www.remotion.dev) from the mod's real scene, in
-[`demo/`](demo):
-
-```bash
-cd demo
-npm install
-node sync-scene.mjs   # copy the scene out of hooks/register.tsx
-npm run render        # writes demo/out/claudemaxxing-backdrop.mp4
-```
-
-Remotion has its own licence, which is free for individuals and small teams; see its site
-before using it at a company.
 
 ## Uninstall
 

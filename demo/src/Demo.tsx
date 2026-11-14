@@ -1,4 +1,4 @@
-import type { CSSProperties, ReactNode } from 'react'
+import type { CSSProperties } from 'react'
 import { AbsoluteFill, Sequence, interpolate, useCurrentFrame } from 'remotion'
 import { SCENE } from './scene'
 
@@ -106,42 +106,6 @@ const Chat = () => (
   </div>
 )
 
-const CAPTIONS: [number, string][] = [
-  [0, 'One forward pass per token of “Claudemaxxing...”'],
-  [3, 'Attention arcs reach back to earlier tokens'],
-  [6, 'A pulse runs down the residual stream, through attn and mlp'],
-  [9, 'Next-token candidates settle, and the winner lights up'],
-  [12, 'Each token fills in its row of the attention map'],
-  [15, 'Then it loops. One SVG, CSS only, no scripts'],
-]
-
-const Caption = ({ children, opacity }: { children: ReactNode; opacity: number }) => (
-  <div
-    style={{
-      position: 'absolute',
-      left: 0,
-      right: 0,
-      bottom: 44,
-      display: 'flex',
-      justifyContent: 'center',
-      opacity,
-    }}
-  >
-    <div
-      style={{
-        font: `500 34px ${SANS}`,
-        color: INK,
-        padding: '16px 30px',
-        borderRadius: 16,
-        background: 'rgba(10,13,17,.86)',
-        border: '1px solid rgba(255,255,255,.08)',
-      }}
-    >
-      {children}
-    </div>
-  </div>
-)
-
 const Window = () => {
   const frame = useCurrentFrame()
   const opacity = interpolate(frame, [0, 12, LOOP - 10, LOOP], [0, 1, 1, 0], { extrapolateRight: 'clamp' })
@@ -150,11 +114,6 @@ const Window = () => {
     <AbsoluteFill style={{ background: GROUND, opacity }}>
       <Scene seconds={frame / FPS} />
       <Chat />
-      {CAPTIONS.map(([at, text]) => (
-        <Caption key={at} opacity={fade(frame, at * FPS + 4, (at + 3) * FPS)}>
-          {text}
-        </Caption>
-      ))}
     </AbsoluteFill>
   )
 }
