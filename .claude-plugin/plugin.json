@@ -1,10 +1,10 @@
 {
   "name": "claudemaxxing-backdrop",
-  "version": "1.2.0",
-  "description": "An animated transformer spelling out \"Claudemaxxing...\" behind the conversation",
+  "version": "2.0.0",
+  "description": "Programming and AI words drift across the window while \"Claudemaxxing...\" is generated token by token",
   "author": { "name": "Priyatham Kattakinda", "url": "https://github.com/priyathamkat" },
   "homepage": "https://github.com/priyathamkat/claudemaxxing-backdrop",
   "repository": "https://github.com/priyathamkat/claudemaxxing-backdrop",
   "license": "MIT",
-  "keywords": ["backdrop", "theme", "animation", "transformer", "attention", "svg", "mod"]
+  "keywords": ["backdrop", "theme", "animation", "tokens", "llm", "svg", "mod"]
 }

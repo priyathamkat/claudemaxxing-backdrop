@@ -1,26 +1,25 @@
 # claudemaxxing-backdrop
 
-An animated backdrop for the Claude desktop app: a small transformer that spells out
-"Claudemaxxing..." one token at a time, beside your conversation.
+An animated backdrop for the Claude desktop app: programming and AI words drift across the
+window while "Claudemaxxing..." is generated one token at a time.
 
-[![Demo of the backdrop: a transformer diagram animating between the sidebar and the chat column](assets/demo.gif)](assets/demo.mp4)
+[![Demo of the backdrop: words drifting behind a chat window while a phrase is generated token by token](assets/demo.gif)](assets/demo.mp4)
 
 ## What you see
 
-One loop takes 18 seconds, three per token (`Cl` · `aude` · `max` · `x` · `ing` · `...`):
+- **A sea of words** drifts slowly from the top-left corner toward the bottom-right, in two
+  layers: programming (`map`, `null`, `rustc`, `async`, `grep`, …) and AI (`attention`,
+  `Anthropic`, `token`, `softmax`, `logits`, …).
+- **Three diagonal lanes** each generate the phrase one token at a time
+  (`Cl` · `aude` · `max` · `x` · `ing` · `...`), starting six seconds apart.
+- **At every step** a few candidates appear in grey, one is chosen and lights up, and a line
+  runs on to the next position.
+- **The finished phrase** holds for a moment, fades, and starts again. One phrase takes about
+  18 seconds.
 
-1. **The text so far** grows by one token at the top.
-2. **A pulse runs down the residual stream**, lighting `attn` and `mlp` in each of four layers.
-3. **Next-token candidates settle** under the stream, and the winner lights up.
-4. **Attention arcs** draw from the current token back to earlier ones, thicker where the
-   attention is stronger.
-5. **The token's row of the attention map fills in** below the arcs.
-
-Then the word holds for a moment, fades, and starts again.
-
-Everything is drawn as one slim column in the gutter between the sidebar and the chat
-column, so nothing sits behind the text you are reading. The ground is transparent, with
-grey hairlines and one orange accent, so it sits on top of whatever theme you already use.
+It fills the whole window, so it does not depend on where the sidebar or other panels are.
+The ground is transparent, with grey text and one orange accent, so it sits on top of
+whatever theme you already use.
 
 ## Install
 
@@ -47,11 +46,8 @@ In the desktop app, where `/plugin` does not run: click **+** next to the prompt
   and editor extensions draw nothing. It has been tested on the desktop app in dark mode only.
 - **Early-access API.** This is a Claude Code mod (a plugin with a hooks module). The mod API
   is early access and may change between releases; this was built against Claude Code 2.1.325.
-- **Window size.** The column needs a gutter of roughly 330 pixels between the sidebar and
-  the chat column, which a wide desktop window has. In a narrower window the gutter shrinks
-  and the right part of the scene slides under the chat column.
-- **Sidebar.** The scene is placed for an open sidebar. With the sidebar closed, the chat
-  column moves left and covers part of it.
+- **Behind the panels.** The app frosts its panels over the backdrop, so the scene is blurred
+  behind the chat column and the sidebar and sharp in the gaps around them.
 - **Reduce Motion.** The scene keeps animating when the system's Reduce Motion setting is on.
   If you want it still, remove the mod.
 - **One theme at a time.** A session has one theme, the latest set, so this replaces a backdrop
