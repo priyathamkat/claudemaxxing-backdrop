@@ -1,0 +1,11 @@
+{
+  "name": "claudemaxxing-backdrop",
+  "owner": { "name": "Priyatham Kattakinda" },
+  "plugins": [
+    {
+      "name": "claudemaxxing-backdrop",
+      "source": "./",
+      "description": "An animated transformer spelling out \"Claudemaxxing...\" behind the conversation"
+    }
+  ]
+}
